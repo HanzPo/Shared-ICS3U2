@@ -2,28 +2,36 @@ import java.util.Scanner;
 public class mathFunctions {
 
 	public static void main(String[] args) {
+		
 		Scanner scanner = new Scanner(System.in);
 		System.out.println("1) Multiply two numbers");
 		System.out.println("2) Calculate a power of a number");
 		System.out.print("Choose an option: ");
 		int option = scanner.nextInt();
-		if (option == 1) {
+		
+		switch(option) {
+		case 1:
 			System.out.print("Enter number 1: ");
 			int a = scanner.nextInt();
 			System.out.print("Enter number 2: ");
 			int b = scanner.nextInt();
 			System.out.println("The product is " + aTimesB(a,b));
-		}else if (option == 2) {
+			break;
+		case 2:
 			System.out.print("Enter the base: ");
 			int base = scanner.nextInt();
 			System.out.print("Enter the exponent: ");
 			int exp = scanner.nextInt();
 			System.out.println("The answer is " + aToThePowerOfB(base,exp));
-		}else {
+			break;
+		case 3:
+			System.out.print("Enter the number to factorialize: ");
+			int n = scanner.nextInt();
+			System.out.println(n + " factorial is " + factorialOf(n));
+			break;
+		default:
 			System.out.println("Not a valid option.");
 		}
-		
-		
 	}
 	
 	public static int aTimesB(int a, int b) {
@@ -39,5 +47,12 @@ public class mathFunctions {
 			power *= a;
 		}
 		return power;
+	}
+	
+	public static int factorialOf(int a) {
+		for (int i = a-1; i > 0; i--) {
+			a *= i;
+		}
+		return a;
 	}
 }
