@@ -9,6 +9,7 @@ public class mathFunctions {
 		System.out.println("2) Calculate a power of a number");
 		System.out.println("3) Calculate the factorial of a number");
 		System.out.println("4) Calculate hypoteneuse of right triangle");
+		System.out.println("5) Square/Square root a number");
 		System.out.print("Choose an option: ");
 		int option = scanner.nextInt();
 
@@ -38,6 +39,11 @@ public class mathFunctions {
 				System.out.println("Enter side length B: ");
 				int B = scanner.nextInt();
 				System.out.printf("The hypoteneuse is %-10.4f", hypoteneuse(A,B));
+				break;
+			case 5: 
+				System.out.print("Would you like to square or square root a number? (Option 1 or 2) ");
+				int sq = scanner.nextInt();
+				sqrt(sq);
 				break;
 			default:
 				System.out.println("Not a valid option.");
@@ -72,5 +78,23 @@ public class mathFunctions {
 		
 		double hyp = Math.sqrt((double)newA + newB);
 		return hyp;
+}
+	public static void sqrt(int sqrt) {
+		Scanner scanner = new Scanner(System.in);
+		
+		if (sqrt==1) {
+			System.out.print("What number would you like to square? ");
+			int squ = scanner.nextInt();
+			System.out.println(squ + " squared is: " + (squ*squ));
+			}
+		if (sqrt==2) {
+			System.out.print("What number would you like the square root of? ");
+			int sq = scanner.nextInt();
+			System.out.println("The square root of " + sq + " is " + Math.sqrt(sq));
+		} else {
+			System.out.println("Not a valid option, try again");
+			sqrt = scanner.nextInt();
+		}
 	}
 }
+
