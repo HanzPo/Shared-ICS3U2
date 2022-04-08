@@ -9,6 +9,7 @@ public class mathFunctions {
 		System.out.println("2) Calculate a power of a number");
 		System.out.println("3) Calculate the factorial of a number");
 		System.out.println("4) Calculate hypoteneuse of right triangle");
+		System.out.println("5) Divide an integer by another");
 		System.out.print("Choose an option: ");
 		int option = scanner.nextInt();
 
@@ -38,6 +39,13 @@ public class mathFunctions {
 				System.out.println("Enter side length B: ");
 				int B = scanner.nextInt();
 				System.out.printf("The hypoteneuse is %-10.4f", hypoteneuse(A,B));
+				break;
+			case 5:
+				System.out.println("Enter the dividend");
+				int dividend = scanner.nextInt();
+				System.out.println("Enter the divisor");
+				int divisor = scanner.nextInt();
+				System.out.printf("The quotient is %-10.2f", aDividedByB(dividend,divisor));
 				break;
 			default:
 				System.out.println("Not a valid option.");
@@ -73,4 +81,9 @@ public class mathFunctions {
 		double hyp = Math.sqrt((double)newA + newB);
 		return hyp;
 	}
+	
+	public static double aDividedByB(int a, int b) {
+		return (double) a / b;
+	}
+	
 }
