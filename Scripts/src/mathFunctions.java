@@ -11,6 +11,7 @@ public class mathFunctions {
 		System.out.println("4) Calculate hypoteneuse of right triangle");
 		System.out.println("5) Divide an integer by another");
 		System.out.println("6) Square or square root a number");
+		System.out.println("7) Add two fractions");
 		System.out.print("Choose an option: ");
 		int option = scanner.nextInt();
 
@@ -66,6 +67,17 @@ public class mathFunctions {
 					System.out.printf("The square root of " + squ + " is %-10.4f" , sqrt(sq,squ,squ));
 				} 
 				break;
+			case 7:
+				System.out.print("Enter the numerator of the first fraction: ");
+				int numA = scanner.nextInt();
+				System.out.print("Enter the denominator of the first fraction: ");
+				int denA = scanner.nextInt();
+				System.out.print("Enter the numerator of the second fraction: ");
+				int numB = scanner.nextInt();
+				System.out.print("Enter the denominator of the second fraction: ");
+				int denB = scanner.nextInt();
+				System.out.println(fractionAdder(numA,denA,numB,denB));
+				break;
 			default:
 				System.out.println("Not a valid option.");
 		}
@@ -111,10 +123,29 @@ public class mathFunctions {
 		double ans = 0;
 		if (sqrt==1) {
 			ans = aa*aa;
-			}
+		}
 		if (sqrt==2) {
 			ans = Math.sqrt(bb);
-	}
+		}
 		return ans;
-}
 	}
+	
+	public static String fractionAdder(int numA, int denA, int numB, int denB) {
+		int nA = numA;
+	    int dA = denA;
+	    int nB = numB;
+	    int dB = denB;
+	        
+	    int newNum = nA * dB + nB * dA;
+	    int newDen = dA * dB;
+	    int gcd = 1;
+	    //finds greatest common denominator
+	    for(int i = 1; i <= newNum && i <= newDen; i++) {
+            if(newNum%i==0 && newDen%i==0)
+                gcd = i;
+        }
+	        
+	    return "The sum of " + nA + "/" + dA + " + " + nB + "/" + dB + " = " + newNum/gcd + "/" + newDen/gcd;
+	}
+
+}
