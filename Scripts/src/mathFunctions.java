@@ -10,6 +10,7 @@ public class mathFunctions {
 		System.out.println("3) Calculate the factorial of a number");
 		System.out.println("4) Calculate hypoteneuse of right triangle");
 		System.out.println("5) Divide an integer by another");
+		System.out.println("6) Square or square root a number");
 		System.out.print("Choose an option: ");
 		int option = scanner.nextInt();
 
@@ -46,6 +47,24 @@ public class mathFunctions {
 				System.out.println("Enter the divisor");
 				int divisor = scanner.nextInt();
 				System.out.printf("The quotient is %-10.2f", aDividedByB(dividend,divisor));
+				break;
+			case 6: 
+				System.out.print("Would you like to square or square root a number? (Option 1 or 2) ");
+				int sq = scanner.nextInt();
+				if (sq != 1 && sq !=2) {
+					System.out.println("Not a valid option, Try again");
+					sq = scanner.nextInt();
+				}
+				if (sq==1) {
+					System.out.print("What number would you like to square? ");
+					int squ = scanner.nextInt();
+					System.out.println(squ + " squared is: " + sqrt(sq,squ,squ));
+					}
+				if (sq==2) {
+					System.out.print("What number would you like the square root of? ");
+					int squ = scanner.nextInt();
+					System.out.printf("The square root of " + squ + " is %-10.4f" , sqrt(sq,squ,squ));
+				} 
 				break;
 			default:
 				System.out.println("Not a valid option.");
@@ -85,5 +104,17 @@ public class mathFunctions {
 	public static double aDividedByB(int a, int b) {
 		return (double) a / b;
 	}
-	
+	public static double sqrt(int sqrt,int a, int b) {
+		Scanner scanner = new Scanner(System.in);
+		double aa = a;
+		double bb = b;
+		double ans = 0;
+		if (sqrt==1) {
+			ans = aa*aa;
+			}
+		if (sqrt==2) {
+			ans = Math.sqrt(bb);
+	}
+		return ans;
 }
+	}
