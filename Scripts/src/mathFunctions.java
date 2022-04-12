@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.lang.Math;
-public class mathFunctions {
+public class HelloWorld {
 	
 	static boolean quit = false;
 
@@ -13,7 +13,8 @@ public class mathFunctions {
 		System.out.println("5) Divide an integer by another");
 		System.out.println("6) Square or square root a number");
 		System.out.println("7) Add two fractions");
-		
+		System.out.println("8) Multiply two fractions");
+		System.out.println("9) Divide two fractions");
 		do {
 			options();
 		}while (!quit);
@@ -95,6 +96,28 @@ public class mathFunctions {
 				int denB = scanner.nextInt();
 				System.out.println(fractionAdder(numA,denA,numB,denB));
 				break;
+			case 8:
+				System.out.print("Enter the numerator of the first fraction: ");
+				int num1 = scanner.nextInt();
+				System.out.print("Enter the denominator of the first fraction: ");
+				int den1 = scanner.nextInt();
+				System.out.print("Enter the numerator of the second fraction: ");
+				int num2 = scanner.nextInt();
+				System.out.print("Enter the denominator of the second fraction: ");
+				int den2 = scanner.nextInt();
+				System.out.println(fractionMultiplier(num1,den1,num2,den2));
+				break;
+			case 9:
+				System.out.print("Enter the numerator of the first fraction: ");
+				int numOne = scanner.nextInt();
+				System.out.print("Enter the denominator of the first fraction: ");
+				int denOne = scanner.nextInt();
+				System.out.print("Enter the numerator of the second fraction: ");
+				int numTwo = scanner.nextInt();
+				System.out.print("Enter the denominator of the second fraction: ");
+				int denTwo = scanner.nextInt();
+				System.out.println(fractionDivider(numOne,denOne,numTwo,denTwo));
+				break;
 			default:
 				System.out.println("Not a valid option. Try again");
 		}
@@ -164,5 +187,38 @@ public class mathFunctions {
 	        
 	    return "The sum of " + nA + "/" + dA + " + " + nB + "/" + dB + " = " + newNum/gcd + "/" + newDen/gcd;
 	}
-
+	public static String fractionMultiplier(int numA, int denA, int numB, int denB) {
+		int nA = numA;
+	    int dA = denA;
+	    int nB = numB;
+	    int dB = denB;
+	        
+	    int newNum = nA * nB;
+	    int newDen = dA * dB;
+	    int gcd = 1;
+	    //finds greatest common denominator
+	    for(int i = 1; i <= newNum && i <= newDen; i++) {
+            if(newNum%i==0 && newDen%i==0)
+                gcd = i;
+        }
+	        
+	    return "The product of " + nA + "/" + dA + " * " + nB + "/" + dB + " = " + newNum/gcd + "/" + newDen/gcd;
+	}
+	public static String fractionDivider(int numA, int denA, int numB, int denB) {
+		int nA = numA;
+	    int dA = denA;
+	    int nB = numB;
+	    int dB = denB;
+	        
+	    int newNum = nA * dB;
+	    int newDen = dA * nB;
+	    int gcd = 1;
+	    //finds greatest common denominator
+	    for(int i = 1; i <= newNum && i <= newDen; i++) {
+            if(newNum%i==0 && newDen%i==0)
+                gcd = i;
+        }
+	        
+	    return "The product of " + nA + "/" + dA + " / " + nB + "/" + dB + " = " + newNum/gcd + "/" + newDen/gcd;
+	}
 }
