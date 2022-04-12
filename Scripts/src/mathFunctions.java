@@ -1,10 +1,11 @@
 import java.util.Scanner;
 import java.lang.Math;
 public class mathFunctions {
+	
+	static boolean quit = false;
 
 	public static void main(String[] args) {
 
-		Scanner scanner = new Scanner(System.in);
 		System.out.println("1) Multiply two numbers");
 		System.out.println("2) Calculate a power of a number");
 		System.out.println("3) Calculate the factorial of a number");
@@ -12,10 +13,26 @@ public class mathFunctions {
 		System.out.println("5) Divide an integer by another");
 		System.out.println("6) Square or square root a number");
 		System.out.println("7) Add two fractions");
-		System.out.print("Choose an option: ");
+		
+		do {
+			options();
+		}while (!quit);
+		
+	}
+	
+	private static void options () {
+		
+		System.out.print("Choose an option or '0' to quit: ");
+		Scanner scanner = new Scanner(System.in);
 		int option = scanner.nextInt();
-
+		
+		
 		switch(option) {
+		
+			case 0:
+				System.out.println("Goodbye!");
+				quit = true;
+				break;
 			case 1:
 				System.out.print("Enter number 1: ");
 				int a = scanner.nextInt();
@@ -36,16 +53,16 @@ public class mathFunctions {
 				System.out.println(n + " factorial is " + factorialOf(n));
 				break;
 			case 4: 
-				System.out.println("Enter side length A: ");
+				System.out.print("Enter side length A: ");
 				int A = scanner.nextInt();
-				System.out.println("Enter side length B: ");
+				System.out.print("Enter side length B: ");
 				int B = scanner.nextInt();
 				System.out.printf("The hypoteneuse is %-10.4f", hypoteneuse(A,B));
 				break;
 			case 5:
-				System.out.println("Enter the dividend");
+				System.out.print("Enter the dividend: ");
 				int dividend = scanner.nextInt();
-				System.out.println("Enter the divisor");
+				System.out.print("Enter the divisor: ");
 				int divisor = scanner.nextInt();
 				System.out.printf("The quotient is %-10.2f", aDividedByB(dividend,divisor));
 				break;
@@ -79,7 +96,7 @@ public class mathFunctions {
 				System.out.println(fractionAdder(numA,denA,numB,denB));
 				break;
 			default:
-				System.out.println("Not a valid option.");
+				System.out.println("Not a valid option. Try again");
 		}
 	}
 
