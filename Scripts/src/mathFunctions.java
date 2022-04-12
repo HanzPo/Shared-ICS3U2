@@ -1,6 +1,6 @@
 import java.util.Scanner;
 import java.lang.Math;
-public class HelloWorld {
+public class mathFunctions {
 	
 	static boolean quit = false;
 
